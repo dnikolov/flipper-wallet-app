@@ -2,30 +2,43 @@
 
 ## Quick Setup
 
-**Prerequisites**: Flipper Zero firmware dev environment, FBT, C99 compiler
+**Prerequisites**: Python 3.8+ with pip, [ufbt](https://pypi.org/project/ufbt/) (micro Flipper Build Tool), Git
+
+`ufbt` builds this repo standalone — it downloads the Flipper SDK/toolchain on first run, so you never need to clone the full firmware repo or nest this app inside `applications_user/`.
 
 **Setup**:
 ```bash
-# Clone firmware
-git clone https://github.com/DarkFlippers/unleashed-firmware.git
-cd unleashed-firmware
-
-# Add app
-cp -r /path/to/flipper-wallet-app applications_user/wallet_app
+pip install ufbt
+git clone https://github.com/YOUR_USERNAME/flipper-wallet-app.git
+cd flipper-wallet-app
 ```
+
+By default `ufbt` targets the official Flipper SDK. To build against the Unleashed SDK instead:
+```bash
+ufbt update --index-url=https://up.unleashedflip.com/directory.json --channel=dev
+```
+Re-run this after every `ufbt update`, otherwise it silently falls back to the official SDK.
 
 ## Building
 
 **Build**:
 ```bash
-fbt fap_wallet_app
-# Output: build/f7-firmware-D/.extapps/wallet_app.fap
+ufbt
+# Output: dist/wallet_app.fap
 ```
 
 **Install to Device**:
-1. Connect Flipper to computer
-2. Copy `.fap` to `/data/apps/Tools/`
-3. Restart or refresh Applications menu
+```bash
+ufbt launch      # build, install and run on a connected Flipper
+# or:
+ufbt flash_usb   # build and flash over USB
+```
+Both require a serial connection (`/dev/ttyACM*` or COM port). Without one, copy `dist/wallet_app.fap` to `/data/apps/Tools/` manually.
+
+**VS Code Integration**:
+```bash
+ufbt vscode_dist   # generates .vscode configuration for building/debugging
+```
 
 ## Code Structure
 
@@ -62,12 +75,13 @@ See [README.md](README.md) development section for full example.
 | Issue | Solution |
 |-------|----------|
 | "undefined reference" | Check `requires=["gui", "storage"]` in application.fam |
-| FAP won't load | Verify size <100KB, check API version |
+| FAP won't load / API mismatch | Run `ufbt update` to match your Flipper's firmware, verify size <100KB |
 | Compilation errors | Use safe functions: `strlcpy()`, `strlcat()` |
 | Config not loading | Verify format exactly matches spec, check `/data/wallet/wallet.conf` |
+| `ufbt update` reverts to official SDK | Re-run with `--index-url=https://up.unleashedflip.com/directory.json --channel=dev` |
 
 ## Resources
 
+- [ufbt on PyPI](https://pypi.org/project/ufbt/)
 - [Flipper Zero Docs](https://docs.flipperzero.io/)
 - [Unleashed Firmware](https://github.com/DarkFlippers/unleashed-firmware)
-- [FBT Documentation](https://docs.flipperzero.io/development/documentation/fbt)

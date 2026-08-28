@@ -23,9 +23,17 @@ Co-pilot generated configurable wallet for Flipper Zero with typed fields (Strin
 
 **Download**: Get `.fap` from [Releases](#) → Copy to `/data/apps/Tools/wallet_app.fap` → Launch from Tools menu
 
-**Build from Source**:
+**Build from Source** (standalone, via [ufbt](https://pypi.org/project/ufbt/) — no firmware clone needed):
 ```bash
+pip install ufbt
+git clone https://github.com/YOUR_USERNAME/flipper-wallet-app.git
+cd flipper-wallet-app
 
+# Optional: target the Unleashed SDK instead of the official one
+ufbt update --index-url=https://up.unleashedflip.com/directory.json --channel=dev
+
+ufbt              # builds dist/wallet_app.fap
+ufbt launch       # builds, installs and runs on a connected Flipper
 ```
 
 ## Usage
