@@ -1,0 +1,37 @@
+# Build artifacts
+build/
+*.fap
+*.elf
+*.bin
+*.dfu
+
+# Development files
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.cbp
+*.depend
+*.layout
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE
+.vs/
+.vim/
+.emacs.d/
+tags
+
+# Build system
+.scons*
+sconstruct.log
+
+# Environment
+*.bak
+*.tmp

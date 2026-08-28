@@ -1,0 +1,9 @@
+App(
+    appid="wallet_app",
+    name="Wallet",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="wallet_app_main",
+    requires=["gui", "storage"],
+    fap_category="Tools",
+    fap_icon="icon.png",
+)
