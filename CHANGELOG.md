@@ -5,7 +5,7 @@ All notable changes to the Flipper Wallet App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2024
+## [1.0.0]
 
 ### Added
 - Initial release of Flipper Wallet App
@@ -47,13 +47,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Flipper Format library (flipper_format)
 - Standard datetime utilities
 
-## Future Enhancements (Planned)
-- [ ] Search functionality
-- [ ] Export/import entries to JSON or CSV
-- [ ] Additional field types (Phone, Email, URL)
-- [ ] Entry templates for quick creation
-- [ ] Backup/restore with encryption
-- [ ] Category icons
-- [ ] Field validation (regex patterns)
-- [ ] Multi-line text fields
-- [ ] Photo attachment support
