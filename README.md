@@ -1,6 +1,6 @@
 # Flipper Wallet App
 
-Configurable wallet for Flipper Zero with typed fields (String, Number, Date) and persistent storage.
+Co-pilot generated configurable wallet for Flipper Zero with typed fields (String, Number, Date) and persistent storage.
 
 ![Flipper Zero](https://img.shields.io/badge/Flipper%20Zero-F7-blue) ![License: MIT](https://img.shields.io/badge/License-MIT-green) ![C99](https://img.shields.io/badge/Language-C99-orange)
 
@@ -25,11 +25,7 @@ Configurable wallet for Flipper Zero with typed fields (String, Number, Date) an
 
 **Build from Source**:
 ```bash
-git clone https://github.com/DarkFlippers/unleashed-firmware.git
-cd unleashed-firmware
-cp -r /path/to/flipper-wallet-app applications_user/wallet_app
-fbt fap_wallet_app
-# Output: build/f7-firmware-D/.extapps/wallet_app.fap
+
 ```
 
 ## Usage
